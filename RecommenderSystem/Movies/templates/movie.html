@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>:: User Home ::</title>
+    <style>
+     .image-thumbail {
+            height: 200px;
+            object-fit: cover;
+        }
+.myclass{
+  font-family: Times New Roman;
+  font-size: 20px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+ .wrapingimage
+{
+float: left;
+margin: 30px 12px 3px 4px;
+border: 2px solid blue;
+}
+</style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<div class="navbar">
+<a href="{% url 'userhome' %}">Home</a>&nbsp;&nbsp;
+    <a href="{% url 'search' %}">Search Movies</a>
+    <a href="{% url 'userlog' %}">User Log</a>
+    <a href="{% url 'analysis' %}">Analysis</a>
+    <a href="{% url 'recommendations' %}">Get Recommendations</a>
+     <a href="{% url 'userlogout' %}">Logout</a>
+</div>
+<font size="5">{{movie.Genre_name}}</font>
+<br>
+<div class="wrapingimage">
+                    <img  src="{{movie.picture.url}}" height="300" width="300"/>
+</div>
+<body>
+<br><br>
+
+<div class="myclass">
+Movie Name:{{movie.movie_name}}<br>
+Hero:{{movie.hero}}<br>
+Heroine:{{movie.heroine}}<br>
+Director:{{movie.Director}}<br>
+Release Year:{{movie.Release_year}}<br>
+Age:{{movie.Age}}+<br>
+Rating:{{movie.Rating}}<br>
+Duration:{{movie.Duration}}<br>
+Description:{{movie.Description}}<br>
+<br><br>
+</div>
+
+</body>
+</html>

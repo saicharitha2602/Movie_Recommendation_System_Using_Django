@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>:: User Login ::</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+<a href="{% url 'index' %}">Home</a>
+<a href="{% url 'userreg' %}">User Registration</a>
+</div>
+<br><br>
+<h2 align="center">User login</h2>
+<form method="post" action="{% url 'checkuser' %}">
+    {% csrf_token %}
+    <table align=center width="400" height="250">
+        <tr>
+            <td><b style="color:blue">Enter Username</b></td>
+            <td><input type="text" name="uname" required></td>
+        </tr>
+        <tr>
+            <td><b style="color:blue">Enter  Password</b></td>
+            <td><input type="password" name="pwd" required></td>
+        </tr>
+        <tr>
+            <td align="center"><input type="submit" class="btn btn-success" value="Submit"></td>
+            <td align="center"><input type="reset" class="btn btn-info" value="Reset"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

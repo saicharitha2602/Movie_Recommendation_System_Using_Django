@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>:: User Home ::</title>
+    <style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+</style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="navbar">
+<a href="{% url 'userhome' %}">Home</a>&nbsp;&nbsp;
+    <a href="{% url 'search' %}">Search Movies</a>
+    <a href="{% url 'userlog' %}">User Log</a>
+    <a href="{% url 'analysis' %}">Analysis</a>
+    <a href="{% url 'recommendations' %}">Get Recommendations</a>
+    <a href="{% url 'userlogout' %}">Logout</a>
+
+</div>
+<table align=center" class="table table-hover" width="800">
+    <tr>
+
+        <th>Genre Name</th>
+        <th>No. of times searched</th>
+    </tr>
+    {% for item1, item2 in zippedList %}
+    <tr><td>{{item1.category}}</td>
+    <td>{{item2}}</td></tr>
+    {% endfor %}
+</table>
+</body>
+</html>

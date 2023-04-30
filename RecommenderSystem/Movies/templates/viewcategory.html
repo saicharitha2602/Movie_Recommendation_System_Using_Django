@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>:: Admin Home::</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+</style>
+<body>
+<div class="navbar">
+<a href="{% url 'adminhome' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'addcategory' %}">Add Category</a>&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'viewcategory' %}">View Categories</a>
+    <a href="{% url 'addmovie' %}">Add a Movie</a>
+    <a href="{% url 'viewmovies' %}">View Movies</a>
+    <a href="{% url 'adminlogout' %}">Logout</a>
+</div>
+
+<h3 align="center">View Categories</h3>
+<table align=center" class="table table-striped" width="800">
+    <tr>
+
+        <th>id</th>
+        <th>category</th>
+    </tr>
+    {% for c in category %}
+    <tr>
+
+        <td>{{c.id}}</td>
+        <td>{{c.category}}</td>
+         </tr>
+    {% empty %}
+    <h3 align="center">Not Found</h3>
+
+    {% endfor %}
+</table>
+<h3 align="center"><mark>Total No of Categories={{count}}</mark></h3>
+</body>
+</html>
